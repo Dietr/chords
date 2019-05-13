@@ -5,7 +5,7 @@ console.log('WORKER: executing.');
 /* A version number is useful when updating the worker logic,
    allowing you to remove outdated cache entries during the update.
 */
-var version = 'v1.0::';
+var version = 'v1.1::';
 
 /* The install event fires when the service worker is first installed.
    You can use this event to prepare the service worker to be able to serve
@@ -48,7 +48,7 @@ addEventListener('fetch', fetchEvent => {
          // and it's a request for a web page
          if (request.headers.get('Accept').includes('text/html')) {
            // show the custom offline page instead
-          //  return caches.match('/offline/index.html');
+           return caches.match('/index.html');
          } // end if
        } // end if/else
      }) // end match.then
