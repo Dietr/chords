@@ -13,7 +13,7 @@ var version = 'v1.1::';
 */
 addEventListener('install', installEvent => {
   installEvent.waitUntil(
-    caches.open('inuit')
+    caches.open('chords')
     .then( chordsCache => {
       chordsCache.addAll([
         '/index.html',
