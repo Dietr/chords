@@ -14,9 +14,11 @@ var version = 'v1.0::';
 addEventListener('install', installEvent => {
   installEvent.waitUntil(
     caches.open('inuit')
-    .then( mrsmrCache => {
-      mrsmrCache.addAll([
-        '/offline/index.html',
+    .then( chordsCache => {
+      chordsCache.addAll([
+        '/index.html',
+        '/assets/css/screen.css',
+        '/assets/js/scripts.js',
         '/assets/img/svg/svg-symbols.svg'
       ]); // end addAll
     }) // end open.then
@@ -46,7 +48,7 @@ addEventListener('fetch', fetchEvent => {
          // and it's a request for a web page
          if (request.headers.get('Accept').includes('text/html')) {
            // show the custom offline page instead
-           return caches.match('/offline/index.html');
+          //  return caches.match('/offline/index.html');
          } // end if
        } // end if/else
      }) // end match.then

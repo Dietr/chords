@@ -36,6 +36,9 @@ module.exports = function(eleventyConfig) {
   // ---
   // Copy files to the compiled site folder
   // ---
+  eleventyConfig.addPassthroughCopy('src/service-worker.js');
+  eleventyConfig.addPassthroughCopy('src/browserconfig.xml');
+  eleventyConfig.addPassthroughCopy('src/site.webmanifest');
   eleventyConfig.addPassthroughCopy('src/assets/img');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/favicon.png');
