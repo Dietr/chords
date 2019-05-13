@@ -3,7 +3,7 @@
    ================================== */
 
 // Variables
-$note: $unit;
+$note: $unit - $unit-tiny;
 $fret: 1px;
 
 // Base component
@@ -32,7 +32,6 @@ $fret: 1px;
   display: inline-block;
 }
 
-
 .c-chord-box {
   display: flex;
   max-width: 400px;
@@ -45,8 +44,8 @@ $fret: 1px;
   padding-right: $note/6;
   background: linear-gradient(
     to bottom,
-    lighten(#DDDDDD,10),
-    transparent
+    lighten(#DDDDDD,20),
+    $color-neutral-xxlight
   );
 }
 
@@ -146,7 +145,7 @@ $fret: 1px;
     display: inline-block;
     position: absolute;
     top: -2px;
-    left: -$note;
+    right: calc(100% - #{$unit-tiny});
     color: hsla(52, 100%, 20%, 1.0);
     font-weight: 700;
     background-color: #FFDC00;
