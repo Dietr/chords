@@ -1,0 +1,51 @@
+/* ==================================
+   #LINKS
+   ================================== */
+
+.c-link {
+  transition: $transition;
+
+  &,
+  &:visited {
+    color: $color-primary;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-primary-light;
+  }
+
+  .is-active > & {
+    color: $color-primary-dark;
+  }
+}
+
+.c-link--bare {
+  &,
+  &:visited,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// Skip to navigation link
+.c-link--skip {
+  @include font-size($tiny);
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  display: block;
+  font-weight: $regular;
+  text-decoration: none;
+  transition: color $duration $easing;
+
+  &:focus {
+    width: auto;
+    height: auto;
+    top: 100%;
+    left: 0;
+  }
+}

@@ -1,0 +1,258 @@
+<p class="c-chord-label">{{ label }}</p>
+<h2 class="c-chord-title">{{ base }}<span class="c-chord-title__type">{{ variation }}</span></h2>
+<div class="c-chord-box">
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% assign fret = start | remove: "2-" remove:"fr" %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if start contains "1-" %}
+      <span class="c-chord-box__marker">{{ start | remove: "1-" }}</span>
+      {% endif %}
+      {% if E contains "1" %}
+      <span class="c-chord-box__note{% if E contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if start contains "2-" %}
+      <span class="c-chord-box__marker">{{ start | remove: "2-" }}</span>
+      {% endif %}
+      {% if E contains "2" %}
+      <span class="c-chord-box__note{% if E contains '2r' %} c-chord-box__note--root{% endif %}">
+        {% comment %} {{ fret | minus:2 plus:2 }} {% endcomment %}
+      </span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if start contains "3-" %}
+      <span class="c-chord-box__marker">{{ start | remove: "3-" }}</span>
+      {% endif %}
+      {% if E contains "3" %}
+      <span class="c-chord-box__note{% if E contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if start contains "4-" %}
+      <span class="c-chord-box__marker">{{ start | remove: "4-" }}</span>
+      {% endif %}
+      {% if E contains "4" %}
+      <span class="c-chord-box__note{% if E contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if start contains "5-" %}
+      <span class="c-chord-box__marker">{{ start | remove: "5-" }}</span>
+      {% endif %}
+      {% if E contains "5" %}
+      <span class="c-chord-box__note{% if E contains '5r' %} c-chord-box__note--root{% endif %}">
+        {% comment %} {{ fret | minus:2 plus:5 }} {% endcomment %}
+      </span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if A contains "1" %}
+      <span class="c-chord-box__note{% if A contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if A contains "2" %}
+      <span class="c-chord-box__note{% if A contains '2r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if A contains "3" %}
+      <span class="c-chord-box__note{% if A contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if A contains "4" %}
+      <span class="c-chord-box__note{% if A contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if A contains "5" %}
+      <span class="c-chord-box__note{% if A contains '5r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if D contains "1" %}
+      <span class="c-chord-box__note{% if D contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if D contains "2" %}
+      <span class="c-chord-box__note{% if D contains '2r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if D contains "3" %}
+      <span class="c-chord-box__note{% if D contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if D contains "4" %}
+      <span class="c-chord-box__note{% if D contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if D contains "5" %}
+      <span class="c-chord-box__note{% if D contains '5r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if G contains "1" %}
+      <span class="c-chord-box__note{% if G contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if G contains "2" %}
+      <span class="c-chord-box__note{% if G contains '2r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if G contains "3" %}
+      <span class="c-chord-box__note{% if G contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if G contains "4" %}
+      <span class="c-chord-box__note{% if G contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if G contains "5" %}
+      <span class="c-chord-box__note{% if G contains '5r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if B contains "1" %}
+      <span class="c-chord-box__note{% if B contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if B contains "2" %}
+      <span class="c-chord-box__note{% if B contains '2r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if B contains "3" %}
+      <span class="c-chord-box__note{% if B contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if B contains "4" %}
+      <span class="c-chord-box__note{% if B contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if B contains "5" %}
+      <span class="c-chord-box__note{% if B contains '5r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="c-chord-box__string">
+    {% for i in (1..5) %}
+    {% if i == 1 %}
+    <div class="c-chord-box__fret">
+      {% if e contains "1" %}
+      <span class="c-chord-box__note{% if e contains '1r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 2 %}
+    <div class="c-chord-box__fret">
+      {% if e contains "2" %}
+      <span class="c-chord-box__note{% if e contains '2r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 3 %}
+    <div class="c-chord-box__fret">
+      {% if e contains "3" %}
+      <span class="c-chord-box__note{% if e contains '3r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 4 %}
+    <div class="c-chord-box__fret">
+      {% if e contains "4" %}
+      <span class="c-chord-box__note{% if e contains '4r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if i == 5 %}
+    <div class="c-chord-box__fret">
+      {% if e contains "5" %}
+      <span class="c-chord-box__note{% if e contains '5r' %} c-chord-box__note--root{% endif %}"></span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>

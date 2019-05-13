@@ -1,0 +1,95 @@
+/* ==================================
+   #TABS
+   ================================== */
+
+.c-tabs {
+  display: flex;
+  margin-bottom: -1px;
+  flex-direction: column;
+
+
+  @include mq(small) {
+    flex-direction: row;
+  }
+}
+
+  .c-tabs__item {
+    border: 1px solid $color-neutral-xxlight;
+    background-color: $white;
+
+    @include mq($until: $small) {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+
+    &:first-child {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+
+    @include mq(small) {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+      border-bottom: 0;
+
+      & + & {
+        margin-left: $unit-tiny;
+      }
+    }
+  }
+
+  .c-tabs__link {
+    text-decoration: none;
+    display: block;
+    padding: $unit-tiny $unit-small;
+
+    &,
+    &:visited {
+      color: $color-neutral;
+      background-color: $color-neutral-xxlight;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-neutral-dark;
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: inset 0 0 0 2px $color-neutral-xlight;
+    }
+
+    &[aria-selected='true'] {
+      color: $color-neutral-dark;
+      background-color: transparent;
+    }
+
+    @include mq(small) {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+  }
+
+.c-tabs-section {
+  padding: $unit-small;
+  border: 1px solid $color-neutral-xxlight;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+
+  * {
+    margin-bottom: 0;
+  }
+
+  * + * {
+    margin-top: $unit-small;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0 0 0 2px $color-neutral-xxlight;
+  }
+
+  @include mq(medium) {
+    padding: $unit
+  }
+}

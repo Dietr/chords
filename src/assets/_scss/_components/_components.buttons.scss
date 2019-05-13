@@ -1,0 +1,177 @@
+/* ==================================
+   #BUTTONS
+   ================================== */
+
+
+.c-btn {
+  display: inline-block;
+  vertical-align: middle;
+  font: inherit;
+  text-align: center;
+  margin: 0;
+  padding: $unit-small $unit;
+  transition: $transition;
+  border-radius: $radius;
+  border: 0;
+}
+
+.c-btn-reset {
+  font: inherit;
+  position: relative;
+  color: inherit;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0 0 0 2px $color-neutral-xlight;
+  }
+}
+
+.c-btn-reset--large {
+  @include font-size($h2);
+}
+
+
+
+
+/* Size variants
+   ================================== */
+
+.c-btn--small {
+  @include font-size($tiny);
+  padding: $unit-tiny $unit-small;
+}
+
+.c-btn--large {
+  @include font-size($h6);
+  padding: $unit-small $unit;
+
+  @include mq(medium) {
+    @include font-size($h5);
+    padding: $unit-small * 1.5 $unit * 1.5;
+  }
+}
+
+.c-btn--block {
+  display: block;
+}
+
+
+
+
+
+/* Style variants
+   ================================== */
+
+.c-btn--primary {
+  background-color: $color-primary;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none; /* [4] */
+    color: $white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary-light;
+  }
+
+}
+
+.c-btn--secondary {
+  background-color: $color-secondary;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: $white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-secondary-light;
+  }
+
+}
+
+
+
+
+/* Ghost buttons
+   ================================== */
+
+/**
+ * Ghost buttons have see-through backgrounds and are bordered.
+ */
+
+$btn-ghost-border-width: 2px !default;
+
+.c-btn--ghost {
+  border: $btn-ghost-border-width solid currentColor;
+  padding: ($inuit-global-spacing-unit-small - $btn-ghost-border-width) ($inuit-global-spacing-unit - $btn-ghost-border-width);
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    background: none;
+  }
+
+  &.c-btn--small {
+    padding: ($inuit-global-spacing-unit-tiny - $btn-ghost-border-width) ($inuit-global-spacing-unit-small - $btn-ghost-border-width);
+  }
+
+  &.c-btn--large {
+    padding: ($inuit-global-spacing-unit - $btn-ghost-border-width) ($inuit-global-spacing-unit-large - $btn-ghost-border-width);
+  }
+
+  &.c-btn--primary {
+    color: $color-primary;
+
+    &:hover,
+    &:focus {
+      color: $color-primary-light;
+    }
+
+  }
+
+  &.c-btn--secondary {
+    color: $color-secondary;
+
+    &:hover,
+    &:focus {
+      color: $color-secondary-light;
+    }
+
+  }
+
+}
+
+
+
+
+
+/* Button groups
+   ================================== */
+
+.c-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .c-btn {
+    margin-right: $inuit-global-spacing-unit;
+  }
+
+  .c-link {
+    margin: $inuit-global-spacing-unit 0;
+  }
+}

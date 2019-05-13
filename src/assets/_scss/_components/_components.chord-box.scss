@@ -1,0 +1,155 @@
+/* ==================================
+   #CHORD BOX
+   ================================== */
+
+// Variables
+$note: $unit;
+$fret: 1px;
+
+// Base component
+.c-chord-title {
+  font-size: 29px;
+  position: relative;
+  color: $color-primary;
+}
+
+.c-chord-label {
+  @include font-size($h4);
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
+  color: $color-primary-light;
+  margin-bottom: $unit-small;
+  background-color: $white;
+  border-radius: $radius;
+  padding: 0 $unit-tiny;
+}
+
+.c-chord-title__type {
+  font-size: .7em;
+  position: relative;
+  bottom: .5em;
+  display: inline-block;
+}
+
+
+.c-chord-box {
+  display: flex;
+  max-width: 400px;
+  border: $fret*2 solid lighten(#AAAAAA,20);
+  border-bottom-width: 0;
+  border-top-width: $fret*6;
+  border-top-left-radius: $fret*3;
+  border-top-right-radius: $fret*3;
+  padding-left: $note/6;
+  padding-right: $note/6;
+  background: linear-gradient(
+    to bottom,
+    lighten(#DDDDDD,10),
+    transparent
+  );
+}
+
+  .c-chord-box__string {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      height: calc(100% + #{$note});
+      position: absolute;
+      top: -$note/2;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: $fret * 6;
+      background-color: darken(#AAAAAA,20);
+      box-shadow: 0 0 0 2px lighten(#AAAAAA,40);
+      z-index: -1;
+    }
+
+    &:nth-child(1)::before {
+      width: $fret*6;
+    }
+
+    &:nth-child(2)::before {
+      width: $fret*5;
+    }
+
+    &:nth-child(3)::before {
+      width: $fret*4;
+    }
+
+    &:nth-child(4)::before {
+      width: $fret*3;
+    }
+
+    &:nth-child(5)::before {
+      width: $fret*2;
+    }
+
+    &:nth-child(6)::before {
+      width: $fret*1;
+    }
+  }
+
+  .c-chord-box__fret {
+    min-height: $note + $note;
+    position: relative;
+
+    & + & {
+      padding-top: $note/4;
+    }
+
+    &:last-child {
+      margin-bottom: $note/2;
+    }
+
+    & + &::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      width: calc(100% + #{$note/2 - 2px});
+      border-top: $fret*3 solid lighten(#AAAAAA,20);
+      z-index: -2;
+    }
+  }
+
+  .c-chord-box__note {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    background-color: $navy;
+    border-radius: $note;
+    width: $note;
+    height: $note;
+    margin-top: $note/2;
+    margin-left: calc(50% - #{$note/2});
+    border: 2px solid tint($navy,5);
+    box-shadow: 0 0 3px rgba($color-neutral,.2);
+  }
+
+  .c-chord-box__note--root {
+    background-color: $red;
+    border: 2px solid tint($red,5);
+  }
+
+  .c-chord-box__marker {
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    left: -$note;
+    color: hsla(52, 100%, 20%, 1.0);
+    font-weight: 700;
+    background-color: #FFDC00;
+    border-radius: $fret*6;
+    padding: $fret*3 $fret*4;
+  }

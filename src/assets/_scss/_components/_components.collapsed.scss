@@ -1,0 +1,49 @@
+/* ==================================
+   #COLLAPSED SECTIONS
+   ================================== */
+
+
+.c-collapsed {
+
+}
+
+  .c-collapsed__title {
+    border-top: 1px dotted $color-neutral-xlight;
+
+    &:first-of-type {
+      border-top: 0;
+    }
+  }
+
+  .c-collapsed__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: inherit;
+    color: inherit;
+    border: 0;
+    background-color: transparent;
+    padding: $unit-small 0;
+    transition: color $duration $easing;
+
+    &,
+    &:active {
+      color: $color-neutral;
+    }
+
+    &:hover,
+    &:focus,
+    &[aria-expanded="true"] {
+      color: $color-neutral-dark;
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: inset 0 0 0 2px $color-neutral-xlight;
+    }
+  }
+
+  .c-collapsed__body {
+    padding-bottom: $unit;
+  }
