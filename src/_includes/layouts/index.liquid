@@ -4,7 +4,113 @@ layout: default
 
 <section class="o-row-large s-theme-neutral-xxlight">
   <div class="o-wrapper o-wrapper--huge">
-    <h2>Minor scales</h2>
+    <h2>B natural minor chord sequence</h2>
+    <ul class="o-layout">
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "i"
+          base:"B"
+          variation:"min"
+          start: ""
+          E: ""
+          A: "2"
+          D: "4"
+          G: "4"
+          B: "3"
+          e: "2"
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "iidim"
+          base:"C#"
+          variation:"dim"
+          start: "3-4fr"
+          E: ""
+          A: "2"
+          D: "3"
+          G: "4"
+          B: "3"
+          e: ""
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "III"
+          base:"D"
+          variation:""
+          start: ""
+          E: ""
+          A: "5"
+          D: "4"
+          G: "2"
+          B: "3"
+          e: "2"
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "iv"
+          base:"E"
+          variation:"min"
+          start: ""
+          E: ""
+          A: "2"
+          D: "2"
+          G: ""
+          B: ""
+          e: ""
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "v"
+          base:"F#"
+          variation:"min"
+          start: ""
+          E: "2"
+          A: "4"
+          D: "4"
+          G: "2"
+          B: "2"
+          e: "2"
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "VI"
+          base:"G"
+          variation:""
+          start: ""
+          E: "2"
+          A: "3"
+          D: ""
+          G: ""
+          B: "2"
+          e: "2"
+        %}
+      </li>
+      <li class="o-layout__item u-1/5@medium">
+        {% include "components/organism.chord-box.liquid",
+          label: "VII"
+          base:"A"
+          variation:""
+          start: ""
+          E: ""
+          A: ""
+          D: "2"
+          G: "2"
+          B: "2"
+          e: ""
+        %}
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="o-row-large s-theme-neutral-xxlight">
+  <div class="o-wrapper o-wrapper--huge">
+    <h2>Natural minor scale (Aeolian mode)</h2>
     <ul class="o-layout">
       <li class="o-layout__item u-1/5@medium">
         {% include "components/organism.chord-box.liquid",
@@ -72,7 +178,7 @@ layout: default
           A: "1 2 4"
           D: "1 2 4"
           G: "1r 3 4"
-          B: "1 4 5"
+          B: "2 4 5"
           e: "2 4r"
         %}
       </li>
@@ -150,7 +256,7 @@ layout: default
           A: "2 4"
           D: "1 4"
           G: "1r 4"
-          B: "1 4"
+          B: "2 4"
           e: "2 4r"
         %}
       </li>
@@ -169,7 +275,7 @@ layout: default
           variation:"min7"
           start: "2-5fr"
           E: "2"
-          A: ""
+          A: "4"
           D: "2"
           G: "2"
           B: "2"
