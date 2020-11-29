@@ -1,0 +1,216 @@
+/* ==================================
+   #SCALE
+   ================================== */
+
+// Variables
+$note: $unit - $unit-tiny;
+$fret: 1px;
+
+// Base component
+.c-scale-title {
+  font-size: 29px;
+  position: relative;
+  color: $color-primary;
+}
+
+.c-scale-label {
+  @include font-size($h4);
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
+  color: $color-primary-light;
+  margin-bottom: $unit-small;
+  background-color: $white;
+  border-radius: $radius;
+  padding: 0 $unit-tiny;
+}
+
+.c-scale-title__type {
+  font-size: .7em;
+  position: relative;
+  bottom: .5em;
+  display: inline-block;
+}
+
+.c-scale-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  border: $fret*2 solid lighten(#AAAAAA,20);
+  border-left-width: $fret*6;
+  border-top-left-radius: $fret*3;
+  border-top-right-radius: $fret*3;
+  border-right-width: 0;
+  padding-left: $note/6;
+  padding-right: $note/6;
+  background: linear-gradient(
+    to top,
+    lighten(#DDDDDD,20),
+    lighten(#DDDDDD,9)
+  );
+}
+
+  .c-scale-box__string {
+    display: flex;
+    justify-content: stretch;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    min-height: $note*1.5;
+
+    &::before {
+      content: '';
+      width: calc(100% + #{$note});
+      position: absolute;
+      top: $note/1.5;
+      left: -$note/2;
+      border-radius: $fret * 6;
+      background-color: lighten(#AAAAAA,10);
+      box-shadow: 0 0 0 1px lighten(#AAAAAA,40);
+      z-index: -1;
+    }
+  }
+
+  .c-scale-box__string--e:nth-child(1)::before {
+    height: $fret*1;
+  }
+
+  .c-scale-box__string--B:nth-child(2)::before {
+    height: $fret*1.5;
+  }
+
+  .c-scale-box__string--G::before {
+    height: $fret*2;
+  }
+
+  .c-scale-box__string--D::before {
+    height: $fret*4;
+  }
+
+  .c-scale-box__string--A::before {
+    height: $fret*5;
+  }
+
+  .c-scale-box__string--E::before {
+    height: $fret*6;
+  }
+
+  .c-scale-box__fret {
+    width: 100%;
+    min-width: $note*2;
+    position: relative;
+
+    &:first-child {
+      width: 0;
+      min-width: $note;
+      margin-right: -$note;
+    }
+
+    & + & {
+      padding-left: $note/4;
+    }
+
+    &:last-child {
+      width: 0;
+      min-width: $note;
+      margin-right: $note;
+    }
+
+    &:not(:first-child) + &::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret*3 solid lighten(#AAAAAA,25);
+      z-index: -2;
+    }
+
+    &:nth-child(14)::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret*3 double lighten(#AAAAAA,10) !important;
+      z-index: -2;
+    }
+
+    .c-scale-box__string--e &::after {
+      font-size: 12px;
+      color: $color-neutral;
+      position: absolute;
+      right: 0;
+      top: -$unit;
+    }
+
+    .c-scale-box__string--e &:nth-child(4)::after {
+      content: '3';
+    }
+
+    .c-scale-box__string--e &:nth-child(6)::after {
+      content: '5';
+    }
+
+    .c-scale-box__string--e &:nth-child(8)::after {
+      content: '7';
+    }
+
+    .c-scale-box__string--e &:nth-child(10)::after {
+      content: '9';
+    }
+
+    .c-scale-box__string--e &:nth-child(13)::after {
+      content: '12';
+      font-weight: bold;
+    }
+
+    .c-scale-box__string--e &:nth-child(16)::after {
+      content: '15';
+    }
+  }
+
+  .c-scale-box__note {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    background-color: $navy;
+    border-radius: $note;
+    width: $note*1.5;
+    height: $note*1.5;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: calc(100% - #{$note*2});
+    border: 2px solid tint($navy,5);
+    box-shadow: 0 0 3px rgba($color-neutral,.2);
+  }
+
+  .c-scale-box__note.c-scale-box__note--root {
+    background-color: $red;
+    border: 2px solid tint($red,5);
+  }
+
+  .c-scale-box__marker {
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    position: absolute;
+    bottom: -$note*1.5;
+    right: calc(100% + #{$unit-tiny});
+    color: hsla(52, 100%, 20%, 1.0);
+    font-weight: 700;
+    background-color: #FFDC00;
+    border-radius: $fret*6;
+    padding: $fret*4 $fret*4 $fret*2;
+    white-space: nowrap;
+
+    &::after {
+      content:"";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 1100%;
+      border-right: 2px solid #FFDC00;
+    }
+  }

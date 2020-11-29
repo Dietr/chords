@@ -134,7 +134,7 @@ $fret: 1px;
     box-shadow: 0 0 3px rgba($color-neutral,.2);
   }
 
-  .c-chord-box__note--root {
+  .c-chord-box__note.c-chord-box__note--root {
     background-color: $red;
     border: 2px solid tint($red,5);
   }

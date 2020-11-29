@@ -1,0 +1,145 @@
+<p class="c-scale-label">{{ label }}</p>
+<h2 class="c-scale-title">{{ base }}<span class="c-scale-title__type">{{ variation }}</span></h2>
+<div class="c-scale-box">
+  <div class="c-scale-box__string c-scale-box__string--e">
+    {% for i in (0..16) %}
+    {% assign string = e | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-scale-box__string c-scale-box__string--B">
+    {% for i in (0..16) %}
+    {% assign string = B | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-scale-box__string c-scale-box__string--G">
+    {% for i in (0..16) %}
+    {% assign string = G | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-scale-box__string c-scale-box__string--D">
+    {% for i in (0..16) %}
+    {% assign string = D | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-scale-box__string c-scale-box__string--A">
+    {% for i in (0..16) %}
+    {% assign string = A | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-scale-box__string c-scale-box__string--E">
+    {% for i in (0..16) %}
+    {% assign string = E | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-scale-box__fret">
+      {% if start contains marker %}
+      <span class="c-scale-box__marker">{{ start | remove: marker }}</span>
+      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

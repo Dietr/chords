@@ -20,6 +20,12 @@ module.exports = function(config) {
     config.addTransform(transformName, transforms[transformName])
   })
 
+  // Asset Watch Targets
+  config.addWatchTarget('./src/assets')
+
+  // Deep-Merge
+  config.setDataDeepMerge(true)
+
   // ---
   // Aliases
   // ---
