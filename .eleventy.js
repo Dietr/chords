@@ -1,60 +1,56 @@
+const pluginRss = require('@11ty/eleventy-plugin-rss')
+const markdownIt = require('markdown-it')
+const filters = require('./utils/filters.js')
+const transforms = require('./utils/transforms.js')
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 // Eleventy config
-module.exports = function(eleventyConfig) {
+module.exports = function(config) {
+  // Plugins
+  config.addPlugin(pluginRss)
+  config.addPlugin(syntaxHighlight)
+
+  // Filters
+  Object.keys(filters).forEach((filterName) => {
+    config.addFilter(filterName, filters[filterName])
+  })
+
+  // Transforms
+  Object.keys(transforms).forEach((transformName) => {
+    config.addTransform(transformName, transforms[transformName])
+  })
+
   // ---
   // Aliases
   // ---
-  eleventyConfig.addLayoutAlias('base', 'layouts/base.liquid');
-  eleventyConfig.addLayoutAlias('default', 'layouts/default.liquid');
-  eleventyConfig.addLayoutAlias('index', 'layouts/index.liquid');
-  eleventyConfig.addLayoutAlias('typography', 'layouts/typography.liquid');
-
-  // ---
-  // Collections
-  // ---
-  // Articles > sorted by date
-
-  // eleventyConfig.addCollection('articles', collection => {
-  //   return collection.getFilteredByGlob('src/_articles/*.md').sort(function(a, b) {
-  //     return b.date - a.date;
-  //   });
-  // });
-  // // Cases > sorted by id
-  // eleventyConfig.addCollection('cases', collection => {
-  //   return collection.getFilteredByGlob('src/_cases/*.md').sort((a, b) => {
-  //     return a.data.display_order - b.data.display_order;
-  //   });;
-  // });
-
-  // ---
-  // Plugins
-  // ---
-  eleventyConfig.addPlugin(syntaxHighlight);
+  config.addLayoutAlias('base', 'layouts/base.liquid');
+  config.addLayoutAlias('default', 'layouts/default.liquid');
+  config.addLayoutAlias('index', 'layouts/index.liquid');
+  config.addLayoutAlias('typography', 'layouts/typography.liquid');
 
 
   // ---
   // Copy files to the compiled site folder
   // ---
-  eleventyConfig.addPassthroughCopy('src/service-worker.js');
-  eleventyConfig.addPassthroughCopy('src/browserconfig.xml');
-  eleventyConfig.addPassthroughCopy('src/site.webmanifest');
-  eleventyConfig.addPassthroughCopy('src/assets/img');
-  eleventyConfig.addPassthroughCopy('src/robots.txt');
-  eleventyConfig.addPassthroughCopy('src/favicon.png');
-  eleventyConfig.addPassthroughCopy('src/favicon.ico');
-  eleventyConfig.addPassthroughCopy('src/apple-touch-icon-precomposed.png');
+  config.addPassthroughCopy('src/service-worker.js');
+  config.addPassthroughCopy('src/browserconfig.xml');
+  config.addPassthroughCopy('src/site.webmanifest');
+  config.addPassthroughCopy('src/assets/img');
+  config.addPassthroughCopy('src/robots.txt');
+  config.addPassthroughCopy('src/favicon.png');
+  config.addPassthroughCopy('src/favicon.ico');
+  config.addPassthroughCopy('src/apple-touch-icon-precomposed.png');
 
   // ---
   // Filters
   // ---
   // {{ variable | jsonify }}
-  eleventyConfig.addFilter('jsonify', function (variable) {
+  config.addFilter('jsonify', function (variable) {
     return JSON.stringify(variable);
   });
 
   // {{ array | where: key,value }}
-  eleventyConfig.addFilter('where', function (array, key, value) {
+  config.addFilter('where', function (array, key, value) {
     return array.filter(item => {
       const keys = key.split('.');
       const reducedKey = keys.reduce((object, key) => {
@@ -68,7 +64,7 @@ module.exports = function(eleventyConfig) {
   // ---
   // Liquid config
   // ---
-  eleventyConfig.setLiquidOptions({
+  config.setLiquidOptions({
     dynamicPartials: true,
     strict_filters: true
   });
