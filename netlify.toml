@@ -11,4 +11,4 @@
   publish = "_site/"
 
   # Default build command.
-  command = "gulp"
+  command = "npm run build"
