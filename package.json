@@ -35,7 +35,7 @@
     "del-cli": "^3.0.1",
     "focus-visible": "^5.2.0",
     "html-minifier": "^4.0.0",
-    "lazysizes": "^5.2.2",
+    "lazysizes": "^5.2.1",
     "luxon": "^1.25.0",
     "markdown-it": "^12.0.2",
     "memfs": "^3.2.0",
@@ -52,7 +52,7 @@
     "inuitcss-plugin-flexlayout": "^1.0.5",
     "inuitcss-plugin-responsive-wrapper": "^1.0.1",
     "inuitcss-plugin-row": "^1.0.2",
-    "lazysizes": "^4.1.8",
+    "lazysizes": "^5.2.1",
     "picturefill": "^3.0.3",
     "sass-mq": "^5.0.0",
     "svgxuse": "^1.2.6"
