@@ -1,5 +1,5 @@
-<p class="c-scale-label">{{ label }}</p>
-<h2 class="c-scale-title">{{ base }}<span class="c-scale-title__type">{{ variation }}</span></h2>
+{% if label != "" %}<p class="c-para"><span class="c-badge">{{ label }}</span></p>{% endif %}
+<h3 class="c-title">{{ base }}<span class="c-title__type">{{ variation }}</span></h3>
 <div class="c-scale-box">
   <div class="c-scale-box__string c-scale-box__string--e">
     {% for i in (0..16) %}

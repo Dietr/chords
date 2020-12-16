@@ -14,28 +14,22 @@
  * 3. Ensure the page always fills at least the entire height of the viewport.
  */
 
- html {
+html {
   font-family: $font;
   font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
   line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%; /* [3] */
-  background-color: $white;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: 'kern';
+  background-color: var(--theme-background);
   -webkit-overflow-scrolling: touch;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ::-moz-selection {
-  background-color: $color-neutral-xxlight;
-  color: $color-neutral;
+  background-color: var(--selection);
 }
 
 ::selection {
-  background-color: $color-neutral-xxlight;
-  color: $color-neutral;
+  background-color: var(--selection);
 }
 
 // Only show outlines to keyboard users

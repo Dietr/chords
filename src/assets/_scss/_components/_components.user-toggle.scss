@@ -1,0 +1,74 @@
+/* ==================================
+   #USER TOGGLE
+   ================================== */
+
+.c-user-toggle {
+  position: relative;
+  margin-left: $unit-small;
+
+  @include mq(large) {
+    margin-left: $unit-huge;
+  }
+}
+
+.c-user-toggle__btn {
+  border: 0;
+  outline: 0;
+  color: var(--link);
+  display: flex;
+  padding: .2rem;
+  transition: color $transition;
+  text-decoration: underline;
+  background-color: transparent;
+
+  &:focus,
+  &:hover {
+    color: var(--link-hover);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: .2rem dashed var(--outline);
+  }
+
+  .c-icon {
+    bottom: 0;
+    width: $unit + $unit-tiny;
+    height: $unit + $unit-tiny;
+    padding: $unit-tiny/2;
+  }
+
+  @include mq(medium) {
+    .c-icon {
+      width: $unit + $unit-tiny*1.5;
+      height: $unit + $unit-tiny*1.5;
+      padding: $unit-tiny/2;
+    }
+  }
+}
+
+.c-user-toggle__dark {
+  display: none;
+
+  [data-user-color-scheme='dark'] & {
+    display: block;
+  }
+}
+
+.c-user-toggle__light {
+  display: none;
+
+  [data-user-color-scheme='light'] & {
+    display: block;
+  }
+}
+
+.c-user-toggle__text {
+  @include font-size($small,1.1);
+  font-family: $font;
+  transition: opacity $transition;
+
+  @include mq(large) {
+    white-space: nowrap;
+  }
+}

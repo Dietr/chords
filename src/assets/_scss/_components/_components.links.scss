@@ -7,16 +7,17 @@
 
   &,
   &:visited {
-    color: $color-primary;
+    color: var(--link);
   }
 
   &:hover,
   &:focus {
-    color: $color-primary-light;
+    color: var(--link-hover);
+    text-decoration: none;
   }
 
   .is-active > & {
-    color: $color-primary-dark;
+    color: var(--link-active);
   }
 }
 

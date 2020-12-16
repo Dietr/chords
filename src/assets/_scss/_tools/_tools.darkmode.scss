@@ -1,0 +1,35 @@
+// ==================================
+// #DARK MODE MIXIN
+// https://github.com/hankchizljaw/hylia/blob/master/src/scss/mixins/_dark-mode.scss
+// A little wrapper that lets you define your dark mode custom
+// properties in a way that supports the theme toggle web component
+// ==================================
+
+@mixin dark-mode() {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-mode: 'dark';
+    }
+
+    :root:not([data-user-color-scheme]) {
+      @content;
+    }
+  }
+
+  [data-user-color-scheme='dark'] {
+    @content;
+  }
+}
+
+// Mixin for nested theme colors
+@mixin dark-mode-nested() {
+  @media (prefers-color-scheme: dark) {
+    &:root:not([data-user-color-scheme]) {
+      @content;
+    }
+  }
+
+  &[data-user-color-scheme='dark'] {
+    @content;
+  }
+}

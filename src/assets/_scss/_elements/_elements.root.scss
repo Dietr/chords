@@ -1,0 +1,34 @@
+/* ==========================================================================
+   #SETUP ROOT VARIABLES
+   ========================================================================== */
+
+// Primary
+:root {
+  --color-mode: 'light';
+  --brand: #{$black};
+  --theme: #{$black};
+  --theme-card: #{$white};
+  --theme-light: #{$gray};
+  --theme-xlight: #{$silver};
+  --theme-background: #{$white};
+  --link:  #{$black};
+  --link-hover:  #{$black};
+  --link-active:  #{$black};
+  --selection:  #{$silver};
+  --outline:  #{$black};
+}
+
+// Primary dark
+@include dark-mode() {
+  --brand: #{$white};
+  --theme: #{$white};
+  --theme-background: #{$black};
+  --theme-card: #{$dark-gray};
+  --theme-light: #{$silver};
+  --theme-xlight: #{$gray};
+  --link:  #{$white};
+  --link-hover:  #{$white};
+  --link-active:  #{$white};
+  --selection:  #{$gray};
+  --outline:  #{$white};
+}

@@ -81,7 +81,7 @@ module.exports = function(config) {
   return {
     dir: {
       input: "./src",   // Source
-      output: "./_site" // Destination
+      output: "./dist" // Destination
     },
     passthroughFileCopy: true,
     htmlTemplateEngine: "liquid",

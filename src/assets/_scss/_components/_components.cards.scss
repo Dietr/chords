@@ -8,11 +8,12 @@
   box-shadow: 0 10px 20px rgba($black,.25);
   transition: box-shadow $duration $easing;
   height: 100%;
+  background-color: var(--theme-card);
 
   &:hover,
   &:focus,
   &:focus-within {
-    box-shadow: 0 10px 10px rgba($black,.25), 0 0 0 4px rgba($black,.25);
+    box-shadow: 0 10px 10px rgba($black,.25), 0 0 0 4px var(--theme);
   }
 }
 

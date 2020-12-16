@@ -7,47 +7,17 @@ $note: $unit - $unit-tiny;
 $fret: 1px;
 
 // Base component
-.c-scale-title {
-  font-size: 29px;
-  position: relative;
-  color: $color-primary;
-}
-
-.c-scale-label {
-  @include font-size($h4);
-  display: inline-block;
-  text-align: center;
-  font-family: monospace;
-  color: $color-primary-light;
-  margin-bottom: $unit-small;
-  background-color: $white;
-  border-radius: $radius;
-  padding: 0 $unit-tiny;
-}
-
-.c-scale-title__type {
-  font-size: .7em;
-  position: relative;
-  bottom: .5em;
-  display: inline-block;
-}
-
 .c-scale-box {
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  border: $fret*2 solid lighten(#AAAAAA,20);
+  border: $fret*2 solid var(--theme-xlight);
   border-left-width: $fret*6;
-  border-top-left-radius: $fret*3;
-  border-top-right-radius: $fret*3;
+  border-top-left-radius: $fret*5;
+  border-bottom-left-radius: $fret*5;
   border-right-width: 0;
   padding-left: $note/6;
   padding-right: $note/6;
-  background: linear-gradient(
-    to top,
-    lighten(#DDDDDD,20),
-    lighten(#DDDDDD,9)
-  );
 }
 
   .c-scale-box__string {
@@ -65,17 +35,17 @@ $fret: 1px;
       top: $note/1.5;
       left: -$note/2;
       border-radius: $fret * 6;
-      background-color: lighten(#AAAAAA,10);
-      box-shadow: 0 0 0 1px lighten(#AAAAAA,40);
+      background-color: var(--theme-xlight);
+      box-shadow: 0 0 0 1px var(--theme-background);
       z-index: -1;
     }
   }
 
-  .c-scale-box__string--e:nth-child(1)::before {
+  .c-scale-box__string--e::before {
     height: $fret*1;
   }
 
-  .c-scale-box__string--B:nth-child(2)::before {
+  .c-scale-box__string--B::before {
     height: $fret*1.5;
   }
 
@@ -121,7 +91,7 @@ $fret: 1px;
       position: absolute;
       left: -$note/4 + 1px;
       height: 100%;
-      border-right: $fret*3 solid lighten(#AAAAAA,25);
+      border-right: $fret*2 solid var(--theme-xlight);
       z-index: -2;
     }
 
@@ -130,13 +100,14 @@ $fret: 1px;
       position: absolute;
       left: -$note/4 + 1px;
       height: 100%;
-      border-right: $fret*3 double lighten(#AAAAAA,10) !important;
+      border-right: $fret*3 double var(--theme-xlight) !important;
       z-index: -2;
     }
 
     .c-scale-box__string--e &::after {
       font-size: 12px;
-      color: $color-neutral;
+      color: var(--theme-light);
+      font-weight: $medium;
       position: absolute;
       right: 0;
       top: -$unit;
@@ -173,22 +144,21 @@ $fret: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--theme-background);
     font-weight: 700;
-    background-color: $navy;
+    background-color: var(--theme);
     border-radius: $note;
     width: $note*1.5;
     height: $note*1.5;
     margin-top: 2px;
     margin-bottom: 2px;
     margin-left: calc(100% - #{$note*2});
-    border: 2px solid tint($navy,5);
-    box-shadow: 0 0 3px rgba($color-neutral,.2);
+    border: 2px solid var(--theme);
   }
 
   .c-scale-box__note.c-scale-box__note--root {
-    background-color: $red;
-    border: 2px solid tint($red,5);
+    background-color: var(--theme-background);
+    color: var(--theme);
   }
 
   .c-scale-box__marker {

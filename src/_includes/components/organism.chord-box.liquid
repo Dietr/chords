@@ -1,258 +1,150 @@
-<p class="c-chord-label">{{ label }}</p>
-<h2 class="c-chord-title">{{ base }}<span class="c-chord-title__type">{{ variation }}</span></h2>
-<div class="c-chord-box">
-  <div class="c-chord-box__string">
+{% if label != "" %}<p class="c-para"><span class="c-badge">{{ label }}</span></p>{% endif %}
+<h3 class="c-title">{{ base }}<span class="c-title__type">{{ variation }}</span></h3>
+<div class="c-chord-box u-test">
+  <div class="c-chord-box__string c-chord-box__string--E">
     {% for i in (1..5) %}
-    {% assign fret = start | remove: "2-" remove:"fr" %}
-    {% if i == 1 %}
+    {% assign string = E | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if start contains "1-" %}
-      <span class="c-chord-box__marker">{{ start | remove: "1-" }}</span>
+      {% if start contains marker %}
+      <span class="c-chord-box__marker">{{ start | remove: marker }}</span>
       {% endif %}
-      {% if E contains "1" %}
-      <span class="c-chord-box__note{% if E contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if start contains "2-" %}
-      <span class="c-chord-box__marker">{{ start | remove: "2-" }}</span>
-      {% endif %}
-      {% if E contains "2" %}
-      <span class="c-chord-box__note{% if E contains '2r' %} c-chord-box__note--root{% endif %}">
-        {% comment %} {{ fret | minus:2 plus:2 }} {% endcomment %}
-      </span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if start contains "3-" %}
-      <span class="c-chord-box__marker">{{ start | remove: "3-" }}</span>
-      {% endif %}
-      {% if E contains "3" %}
-      <span class="c-chord-box__note{% if E contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if start contains "4-" %}
-      <span class="c-chord-box__marker">{{ start | remove: "4-" }}</span>
-      {% endif %}
-      {% if E contains "4" %}
-      <span class="c-chord-box__note{% if E contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if start contains "5-" %}
-      <span class="c-chord-box__marker">{{ start | remove: "5-" }}</span>
-      {% endif %}
-      {% if E contains "5" %}
-      <span class="c-chord-box__note{% if E contains '5r' %} c-chord-box__note--root{% endif %}">
-        {% comment %} {{ fret | minus:2 plus:5 }} {% endcomment %}
-      </span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
-  <div class="c-chord-box__string">
+  <div class="c-chord-box__string c-chord-box__string--A">
     {% for i in (1..5) %}
-    {% if i == 1 %}
+    {% assign string = A | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if A contains "1" %}
-      <span class="c-chord-box__note{% if A contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if A contains "2" %}
-      <span class="c-chord-box__note{% if A contains '2r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if A contains "3" %}
-      <span class="c-chord-box__note{% if A contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if A contains "4" %}
-      <span class="c-chord-box__note{% if A contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if A contains "5" %}
-      <span class="c-chord-box__note{% if A contains '5r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
-  <div class="c-chord-box__string">
+  <div class="c-chord-box__string c-chord-box__string--D">
     {% for i in (1..5) %}
-    {% if i == 1 %}
+    {% assign string = D | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if D contains "1" %}
-      <span class="c-chord-box__note{% if D contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if D contains "2" %}
-      <span class="c-chord-box__note{% if D contains '2r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if D contains "3" %}
-      <span class="c-chord-box__note{% if D contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if D contains "4" %}
-      <span class="c-chord-box__note{% if D contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if D contains "5" %}
-      <span class="c-chord-box__note{% if D contains '5r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
-  <div class="c-chord-box__string">
+  <div class="c-chord-box__string c-chord-box__string--G">
     {% for i in (1..5) %}
-    {% if i == 1 %}
+    {% assign string = G | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if G contains "1" %}
-      <span class="c-chord-box__note{% if G contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if G contains "2" %}
-      <span class="c-chord-box__note{% if G contains '2r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if G contains "3" %}
-      <span class="c-chord-box__note{% if G contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if G contains "4" %}
-      <span class="c-chord-box__note{% if G contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if G contains "5" %}
-      <span class="c-chord-box__note{% if G contains '5r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
-  <div class="c-chord-box__string">
+  <div class="c-chord-box__string c-chord-box__string--B">
     {% for i in (1..5) %}
-    {% if i == 1 %}
+    {% assign string = B | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if B contains "1" %}
-      <span class="c-chord-box__note{% if B contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if B contains "2" %}
-      <span class="c-chord-box__note{% if B contains '2r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if B contains "3" %}
-      <span class="c-chord-box__note{% if B contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if B contains "4" %}
-      <span class="c-chord-box__note{% if B contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if B contains "5" %}
-      <span class="c-chord-box__note{% if B contains '5r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
-  <div class="c-chord-box__string">
+  <div class="c-chord-box__string c-chord-box__string--e">
     {% for i in (1..5) %}
-    {% if i == 1 %}
+    {% assign string = e | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
     <div class="c-chord-box__fret">
-      {% if e contains "1" %}
-      <span class="c-chord-box__note{% if e contains '1r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% if i == 2 %}
-    <div class="c-chord-box__fret">
-      {% if e contains "2" %}
-      <span class="c-chord-box__note{% if e contains '2r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 3 %}
-    <div class="c-chord-box__fret">
-      {% if e contains "3" %}
-      <span class="c-chord-box__note{% if e contains '3r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 4 %}
-    <div class="c-chord-box__fret">
-      {% if e contains "4" %}
-      <span class="c-chord-box__note{% if e contains '4r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
-    {% if i == 5 %}
-    <div class="c-chord-box__fret">
-      {% if e contains "5" %}
-      <span class="c-chord-box__note{% if e contains '5r' %} c-chord-box__note--root{% endif %}"></span>
-      {% endif %}
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
+
+
+
+
+
 </div>

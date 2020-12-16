@@ -3,14 +3,14 @@ const sass = require('node-sass')
 const CleanCSS = require('clean-css')
 const cssesc = require('cssesc')
 
-const fileName = 'screen.scss'
+const fileName = 'main.scss'
 const isProd = process.env.ELEVENTY_ENV === 'production'
 
 module.exports = class {
   async data() {
     const filePath = path.join(__dirname, `/${fileName}`)
     return {
-      permalink: `/assets/css/screen.css`,
+      permalink: `/assets/css/main.css`,
       eleventyExcludeFromCollections: true,
       filePath
     }

@@ -3,18 +3,32 @@
    ================================== */
 
 // Set global font style @TODO: should this be in elements.page?
-.c-brand {
-  font-family: $inuit-font-family-primary;
+.c-brand,
+.c-brand__link {
+  @include font-size($h5,1);
+  font-family: $font;
+  display: flex;
+  align-items: center;
+  // width: $unit-huge * 3;
+  position: relative;
+  color: var(--theme);
+  font-weight: $inuit-font-weight-bold;
+  margin-bottom: 0;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
-// Logo
-.c-brand-mark {
-  &,
-  & > .c-brand-mark__link {
-    position: relative;
-    color: $color-primary;
-    font-weight: $inuit-font-weight-bold;
-    text-decoration: none;
-    margin-bottom: 0;
-  }
+.c-brand__icon {
+  width: $unit*2;
+  height: $unit*2;
+  display: block;
+  padding: $unit-tiny;
+  margin-right: $unit-small;
+  border: 1px solid rgba($black,.1);
+  border-radius: $radius*2;
+  background-color: $white;
+  box-shadow: 0 0 3px rgba($black,.1);
 }
