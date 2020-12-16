@@ -1,0 +1,46 @@
+{
+  "_args": [
+    [
+      "inuitcss-plugin-row@1.0.2",
+      "/Users/dieterpeirs/3-Sites/chords"
+    ]
+  ],
+  "_from": "inuitcss-plugin-row@1.0.2",
+  "_id": "inuitcss-plugin-row@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-08Z0J5FQYkDCsI+a+Nkv/bJGlXU=",
+  "_location": "/inuitcss-plugin-row",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "inuitcss-plugin-row@1.0.2",
+    "name": "inuitcss-plugin-row",
+    "escapedName": "inuitcss-plugin-row",
+    "rawSpec": "1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "1.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/inuitcss-plugin-row/-/inuitcss-plugin-row-1.0.2.tgz",
+  "_spec": "1.0.2",
+  "_where": "/Users/dieterpeirs/3-Sites/chords",
+  "author": {
+    "name": "Dieter Peirs"
+  },
+  "bugs": {
+    "url": "https://github.com/Dietr/inuitcss-plugin-row/issues"
+  },
+  "description": "A row object for InuitCSS.",
+  "homepage": "https://github.com/Dietr/inuitcss-plugin-row",
+  "license": "Apache-2.0",
+  "main": "_objects.row.scss",
+  "name": "inuitcss-plugin-row",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dietr/inuitcss-plugin-row.git"
+  },
+  "version": "1.0.2"
+}
