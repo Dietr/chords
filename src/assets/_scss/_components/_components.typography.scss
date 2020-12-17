@@ -43,6 +43,10 @@
   margin-bottom: $unit-small;
 }
 
+.c-small {
+  @include font-size($h6,1.5);
+}
+
 // Badge > Small text with background color
 // ---
 .c-badge {

@@ -1,0 +1,145 @@
+{% if label != "" %}<p class="c-para"><span class="c-badge">{{ label }}</span></p>{% endif %}
+<h3 class="c-title">{{ base }}<span class="c-title__type">{{ variation }}</span></h3>
+<div class="c-tab-box">
+  <div class="c-tab-box__string c-tab-box__string--e">
+    {% for i in (0..17) %}
+    {% assign string = e | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" remove: "h" remove: "s" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-tab-box__string c-tab-box__string--B">
+    {% for i in (0..17) %}
+    {% assign string = B | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-tab-box__string c-tab-box__string--G">
+    {% for i in (0..17) %}
+    {% assign string = G | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-tab-box__string c-tab-box__string--D">
+    {% for i in (0..17) %}
+    {% assign string = D | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-tab-box__string c-tab-box__string--A">
+    {% for i in (0..17) %}
+    {% assign string = A | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="c-tab-box__string c-tab-box__string--E">
+    {% for i in (0..17) %}
+    {% assign string = E | split: ", " %}
+    {% capture number%}{{i}}{%endcapture%}
+    {% assign marker = number | append:"-" %}
+    <div class="c-tab-box__fret">
+      {% if start contains marker %}
+      <span class="c-tab-box__marker">{{ start | remove: marker }}</span>
+      {% endif %}
+      {% for notes in string %}
+        {% assign note = notes | split: "-"  %}
+
+        {% for partTwo in note offset:1 %}
+          {% assign labelNote = partTwo %}
+        {% endfor %}
+
+        {% for partOne in note limit:1 %}
+          {% assign partOneNote = partOne | remove: "r" remove: "h" remove: "s" %}
+          {% if partOneNote == number %}
+          <span class="c-tab-box__note{% if partOne contains 'r' %} c-tab-box__note--root{% endif %}{% if partOne contains 's' %} c-tab-box__note--slide{% endif %}{% if partOne contains 'h' %} c-tab-box__note--hammer{% endif %}">{{labelNote}}</span>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

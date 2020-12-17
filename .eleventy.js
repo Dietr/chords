@@ -38,7 +38,6 @@ module.exports = function(config) {
   // ---
   // Copy files to the compiled site folder
   // ---
-  config.addPassthroughCopy('src/service-worker.js');
   config.addPassthroughCopy('src/browserconfig.xml');
   config.addPassthroughCopy('src/site.webmanifest');
   config.addPassthroughCopy('src/assets/img');

@@ -1,0 +1,217 @@
+/* ==================================
+   #SCALE
+   ================================== */
+
+// Variables
+$note: $unit - $unit-tiny;
+$fret: 1px;
+
+// Base component
+.c-tab-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  border: $fret*2 solid var(--theme-xlight);
+  border-left-width: $fret*6;
+  border-top-left-radius: $fret*5;
+  border-bottom-left-radius: $fret*5;
+  border-right-width: 0;
+  padding-left: $note/6;
+  padding-right: $note/6;
+}
+
+  .c-tab-box__string {
+    display: flex;
+    justify-content: stretch;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    min-height: $note*1.5;
+
+    &::before {
+      content: '';
+      width: calc(100% + #{$note});
+      position: absolute;
+      top: $note/1.5;
+      left: -$note/2;
+      border-radius: $fret * 6;
+      background-color: var(--theme-xlight);
+      box-shadow: 0 0 0 1px var(--theme-background);
+      z-index: -1;
+    }
+  }
+
+  .c-tab-box__string--e::before {
+    height: $fret*1;
+  }
+
+  .c-tab-box__string--B::before {
+    height: $fret*1.5;
+  }
+
+  .c-tab-box__string--G::before {
+    height: $fret*2;
+  }
+
+  .c-tab-box__string--D::before {
+    height: $fret*4;
+  }
+
+  .c-tab-box__string--A::before {
+    height: $fret*5;
+  }
+
+  .c-tab-box__string--E::before {
+    height: $fret*6;
+  }
+
+  .c-tab-box__fret {
+    width: 100%;
+    min-width: $note*2;
+    position: relative;
+
+    &:first-child {
+      width: 0;
+      min-width: $note;
+      margin-right: -$note;
+    }
+
+    & + & {
+      // padding-left: $note/4;
+    }
+
+    &:last-child {
+      width: 0;
+      min-width: $note;
+      margin-right: $note;
+    }
+
+    // &:not(:first-child) + &:nth-child(4n)::before {
+    //   content: '';
+    //   position: absolute;
+    //   left: -$note/4 + 1px;
+    //   height: 100%;
+    //   border-right: $fret*2 solid var(--theme-xlight);
+    //   z-index: -2;
+    // }
+
+    &:nth-child(6)::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret solid var(--theme-xlight) !important;
+      z-index: -2;
+    }
+
+    &:nth-child(10)::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret solid var(--theme-xlight) !important;
+      z-index: -2;
+    }
+
+    &:nth-child(14)::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret solid var(--theme-xlight) !important;
+      z-index: -2;
+    }
+
+    &:nth-child(18)::before {
+      content: '';
+      position: absolute;
+      left: -$note/4 + 1px;
+      height: 100%;
+      border-right: $fret*3 double var(--theme-xlight) !important;
+      z-index: -2;
+    }
+
+    .c-tab-box__string--e &::after {
+      font-size: 12px;
+      color: var(--theme-light);
+      font-weight: $medium;
+      position: absolute;
+      right: 0;
+      top: -$unit;
+    }
+  }
+
+  .c-tab-box__note {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-background);
+    font-weight: 700;
+    background-color: var(--theme);
+    border-radius: $note;
+    width: $note*1.5;
+    height: $note*1.5;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: $note;
+    // margin-left: calc(100% - #{$note*2});
+    border: 2px solid var(--theme);
+  }
+
+  .c-tab-box__note.c-tab-box__note--root {
+    background-color: var(--theme-background);
+    color: var(--theme);
+  }
+
+  .c-tab-box__note.c-tab-box__note--hammer {
+    &:before {
+      position: absolute;
+      bottom: calc(50% + #{$note/2.2});
+      right: calc(100% - #{$note});
+      content: "";
+      border-top: 2px solid var(--theme);
+      width: 50%;
+      height: $unit/2;
+      display: block;
+      border-radius: 50%;
+    }
+  }
+
+  .c-tab-box__note.c-tab-box__note--slide {
+    &:before {
+      position: absolute;
+      bottom: $note/4;
+      right: calc(100% - #{$note/1.5});
+      content: "";
+      border-top: 1px solid var(--theme);
+      width: 50%;
+      height: $unit/2;
+      display: block;
+      transform: rotate(15deg);
+    }
+  }
+
+  .c-tab-box__marker {
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    position: absolute;
+    bottom: -$note*1.5;
+    right: calc(100% + #{$unit-tiny});
+    color: hsla(52, 100%, 20%, 1.0);
+    font-weight: 700;
+    background-color: #FFDC00;
+    border-radius: $fret*6;
+    padding: $fret*4 $fret*4 $fret*2;
+    white-space: nowrap;
+
+    &::after {
+      content:"";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 1100%;
+      border-right: 2px solid #FFDC00;
+    }
+  }
