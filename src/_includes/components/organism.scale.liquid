@@ -17,7 +17,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -40,7 +40,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -63,7 +63,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -86,7 +86,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -109,7 +109,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -135,7 +135,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-scale-box__note{% if partOne contains 'r' %} c-scale-box__note--root{% endif %} {% if partOneNote == '0' %} c-scale-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}

@@ -162,6 +162,14 @@ $fret: 1px;
     color: var(--theme);
   }
 
+  .c-scale-box__note.c-scale-box__note--open {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: calc(100% - #{$note*3});
+    width: $note*1.4;
+    padding-left: $note/5;
+  }
+
   .c-scale-box__marker {
     font-size: 14px;
     line-height: 1;
