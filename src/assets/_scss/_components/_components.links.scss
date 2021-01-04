@@ -30,6 +30,11 @@
   }
 }
 
+.c-link--button {
+  @include font-size($h5);
+  display: block;
+}
+
 // Skip to navigation link
 .c-link--skip {
   @include font-size($tiny);
