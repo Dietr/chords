@@ -1,8 +1,8 @@
 {% if label != "" %}<p class="c-para"><span class="c-badge">{{ label }}</span></p>{% endif %}
 <h3 class="c-title">{{ base }}<span class="c-title__type">{{ variation }}</span></h3>
-<div class="c-chord-box u-test">
+<div class="c-chord-box {% if start != "" %}c-chord-box--marker{% endif %}">
   <div class="c-chord-box__string c-chord-box__string--E">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = E | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -20,7 +20,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -28,7 +28,7 @@
     {% endfor %}
   </div>
   <div class="c-chord-box__string c-chord-box__string--A">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = A | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -43,7 +43,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -51,7 +51,7 @@
     {% endfor %}
   </div>
   <div class="c-chord-box__string c-chord-box__string--D">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = D | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -66,7 +66,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -74,7 +74,7 @@
     {% endfor %}
   </div>
   <div class="c-chord-box__string c-chord-box__string--G">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = G | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -89,7 +89,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -97,7 +97,7 @@
     {% endfor %}
   </div>
   <div class="c-chord-box__string c-chord-box__string--B">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = B | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -112,7 +112,7 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -120,7 +120,7 @@
     {% endfor %}
   </div>
   <div class="c-chord-box__string c-chord-box__string--e">
-    {% for i in (1..5) %}
+    {% for i in (0..6) %}
     {% assign string = e | split: ", " %}
     {% capture number%}{{i}}{%endcapture%}
     {% assign marker = number | append:"-" %}
@@ -135,16 +135,11 @@
         {% for partOne in note limit:1 %}
           {% assign partOneNote = partOne | remove: "r" %}
           {% if partOneNote == number %}
-          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}">{{labelNote}}</span>
+          <span class="c-chord-box__note{% if partOne contains 'r' %} c-chord-box__note--root{% endif %}{% if partOneNote == '0' %} c-chord-box__note--open{% endif %}">{{labelNote}}</span>
           {% endif %}
         {% endfor %}
       {% endfor %}
     </div>
     {% endfor %}
   </div>
-
-
-
-
-
 </div>
